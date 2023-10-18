@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-
 public class ButtonPages {
 
     @FindBy(how = How.XPATH, using = "//button[@type = 'submit']")
@@ -20,8 +19,6 @@ public class ButtonPages {
     @FindBy(how = How.XPATH, using = "//button[text()=' Save ']")
     private WebElement btnSave;
 
-    @FindBy(how = How.XPATH, using = "//button[text()=' Save ']")
-    private WebElement btnSave;
     public ButtonPages(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
