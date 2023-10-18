@@ -24,6 +24,7 @@ public class PimPage {
     public PimPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.buttonPages = new ButtonPages(driver);
+
     }
 
     public void llegarAddEmployee() {
