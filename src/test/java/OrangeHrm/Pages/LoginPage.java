@@ -1,5 +1,6 @@
 package OrangeHrm.Pages;
 
+import OrangeHrm.DateBase.ConsultDataBase;
 import OrangeHrm.Steps.ButtonPages;
 import OrangeHrm.Steps.Questions;
 import org.openqa.selenium.WebDriver;
@@ -8,11 +9,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.sql.SQLException;
+
 
 public class LoginPage {
 
     private ButtonPages buttonPages;
     private Questions questions;
+
+    private ConsultDataBase consultDataBase;
 
     //idenficador de elementos
     @FindBy(how = How.NAME, using = "username")
@@ -30,11 +35,12 @@ public class LoginPage {
     }
 
     //esto es un metodo
-    public void fillOutLogin(String userName, String password) {
+    public void fillOutLogin(String userName, String password) throws SQLException {
         this.txtUser.sendKeys(userName);
         this.txtPass.sendKeys(password);
+        this.consultDataBase.consultUsers();
         this.buttonPages.btnLogin();
         this.questions.timeSeconds(2);
-        this.questions.screenShot();
+        //this.questions.screenShot();
     }
 }

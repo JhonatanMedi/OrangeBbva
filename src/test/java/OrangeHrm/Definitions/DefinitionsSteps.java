@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import OrangeHrm.Steps.Conexion;
 import io.cucumber.java.en.Given;
 
+import java.sql.SQLException;
+
 public class DefinitionsSteps {
 
 	private WebDriver driver;
@@ -21,7 +23,7 @@ public class DefinitionsSteps {
 	}
 
 	@When("^the user fill out user (.*) and password (.*)$")
-	public void fillOutLogin(String userName, String password){
+	public void fillOutLogin(String userName, String password) throws SQLException {
 		this.loginPage = new LoginPage(driver);
 		this.loginPage.fillOutLogin(userName,password);
 	}
